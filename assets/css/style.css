@@ -1,0 +1,53 @@
+#word {
+  margin: 2em 0;
+  text-align: center;
+}
+
+#word b {
+  visibility: hidden;
+}
+
+#word span {
+  display: inline-block;
+  border-bottom: 2px solid #ff4d4d;
+  margin: 5px;
+  min-width: 1em;
+}
+
+#word span.yep b {
+  visibility: visible;
+}
+
+#word span.space {
+  border-bottom: 0;
+}
+
+#gameover {
+  display: none;
+ }
+
+#won {
+  display: none;
+}
+
+body {
+  font-family: 'Rammetto One', cursive;
+  color: #ffff4d;
+  background-image: url("../images/gotbg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  text-shadow: #000 4px 4px;
+  font-size: 30px;
+  margin-top: 40px;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 100px;
+  font-size: 40px;
+}
+
+h3 {
+  margin-top:  50px;
+}
