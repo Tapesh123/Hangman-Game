@@ -1,7 +1,7 @@
 window.onload = function() {
   setUpRound();
 }
-var words = ["Jon Snow", "Tyrion", "Cersei", "Sansa Stark", "Arya Stark", "	Robb Stark", "Khal Drogo", "Daenerys Targaryen", "Jaime Lannister", "Catelyn Stark", "Petyr Baelish", "Joffrey Baratheon", "Theon Greyjoy", "Samwell Tarly", "	Melisandre", "	Brienne", "Missandei", "The High Sparrow", "Hodor"]
+var words = ["Jon Snow", "Tyrion", "Cersei", "Sansa Stark", "Arya Stark", "Robb Stark", "Khal Drogo", "Daenerys Targaryen", "Jaime Lannister", "Catelyn Stark", "Petyr Baelish", "Joffrey Baratheon", "Theon Greyjoy", "Samwell Tarly", "Melisandre", "Brienne", "Missandei", "The High Sparrow", "Hodor"]
 var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 //Set Global Variables
 var activeWord;
@@ -72,6 +72,8 @@ function evalLetter() {
           if ( remainingLetters.length == 0 ) {
             wins = wins + 1;
             document.getElementById("wins").innerHTML = wins;
+            playSong2();
+
 
               //Show the Game Over div
               document.getElementById("won").style.display = "block";
@@ -89,6 +91,7 @@ function evalLetter() {
             document.getElementById("gameover").style.display = "block";
             losses = losses + 1;
             document.getElementById("losses").innerHTML = losses;
+            playSong();
             countDown();
 
           }
@@ -99,8 +102,20 @@ function evalLetter() {
   }
 }
 
+function playSong(){
+  var audio = document.getElementById("audio");
+  audio.play();
+}
+function playSong2(){
+  var audio2 = document.getElementById("audio2");
+  audio2.play();
+}
+
+
+
+
 function countDown() {
-  var counter = 3;
+  var counter = 5;
   var countDown = document.getElementById("countDown");
   countDown.innerHTML = "The next round will start in 3 seconds.";
   var id;
