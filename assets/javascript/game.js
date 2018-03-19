@@ -1,26 +1,29 @@
 window.onload = function() {
   setUpRound();
-}
+} //want to make sure that javsascript executes as soon as html loads
+// creating a variable that holds the characters name
 var words = ["Jon Snow", "Tyrion", "Cersei", "Sansa Stark", "Arya Stark", "Robb Stark", "Khal Drogo", "Daenerys Targaryen", "Jaime Lannister", "Catelyn Stark", "Petyr Baelish", "Joffrey Baratheon", "Theon Greyjoy", "Samwell Tarly", "Melisandre", "Brienne", "Missandei", "The High Sparrow", "Hodor"]
+// variable an array that holds the letters
 var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 //Set Global Variables
 var activeWord;
 var activeLetters = [];
 var guessedLetters = [];
 var incorrect;
-var wins = 0;
-var losses = 0;
+// variable that holds the amount of wins and losses
+var wins = 0; //for counting
+var losses = 0; //counter purpose
 
 function setUpRound() {
   var wordContainer = document.getElementById("word"); //Selecting #word
   wordContainer.innerHTML = "";
   document.getElementById("history").innerHTML = '';
-
   document.getElementById("wins").innerHTML = wins;
   document.getElementById("losses").innerHTML = losses;
+  // remove attribute reset the style when the new round begins
   document.getElementById("gameover").removeAttribute('style');
+  // remove attribute is used here to remove the style once the round begins
   document.getElementById("won").removeAttribute('style');
-
   activeWord = words[Math.floor(Math.random() * words.length)].toLowerCase(); //Retrieving random word from words array & making it lower case
   activeLetters = activeWord.split(""); //Splitting word up into an array of letters
   guessedLetters = []; //Creating an empty array where letters that the user has guessed will go into
@@ -31,8 +34,8 @@ function setUpRound() {
   //Looping through activeLetters array and creating a tile for each letter
 
   for ( i = 0; i < activeLetters.length; i++ ) {
-    var tile = document.createElement("span");
-    tile.className = activeLetters[i] + ' nope';
+    var tile = document.createElement("span"); //creates the tiles and references to css file
+    tile.className = activeLetters[i] + ' nope'; //will be running the loop
     if ( activeLetters[i] == " " ) {
       tile.className = "space yep"; //Making spaces visible by default
     } // end if
@@ -101,7 +104,7 @@ function evalLetter() {
     }
   }
 }
-
+// creation of function that will play sound clip when user wins a game and another sample when user loses
 function playSong(){
   var audio = document.getElementById("audio");
   audio.play();
@@ -112,14 +115,13 @@ function playSong2(){
 }
 
 
-
+//function of a countdown after each round of game. 
 
 function countDown() {
   var counter = 5;
   var countDown = document.getElementById("countDown");
-  countDown.innerHTML = "The next round will start in 3 seconds.";
+  countDown.innerHTML = "The next round will start in 5 seconds.";
   var id;
-
 
   id = setInterval(function() {
       counter--;
